@@ -24,8 +24,7 @@ describe('a credentials manager', () => {
     expect(key).to.equal('foo');
     expect(secret).to.equal('bar');
   });
-  after(() => {
-    credentials.conf.delete('apiKey');
-    credentials.conf.delete('apiSecret');
+  after(async () => {
+    await credentials.clearKeyAndSecret();
   });
 });
